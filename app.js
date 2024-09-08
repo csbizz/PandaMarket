@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
+import Product from './models/Product.js';
 
 const app = express();
 app.use(cors());
@@ -30,4 +31,22 @@ function asyncHandler(handler) {
 }
 
 // get API
-app.get('/hello', () => console.log('Hello!'));
+app.get(
+  '/product',
+  asyncHandler(async (req, res) => {
+    const orderBy = req.query.orderBy || 'recent';
+    const page = Number(req.query.page) || 1;
+    const pageSize = Number(req.query.pageSize) || 10;
+    const keyword = req.query.keyword;
+
+    const sortOption = { createdAt: orderBy === 'recent' ? 'asc' : 'desc' };
+    const searchOption = keyword ? { $text: { $search: keyword } } : {};
+
+    const products = await Product.find(searchOption)
+      .sort(sortOption)
+      .skip((page - 1) * pageSize)
+      .limit(pageSize);
+
+    res.send(products);
+  })
+);
