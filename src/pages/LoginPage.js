@@ -1,7 +1,4 @@
-//     <link rel="stylesheet" href="../../src/css/signpage.css" />
-//     <link rel="stylesheet" href="../../src/css/login.css" />
 //     <script type="module" src="../src/js/login.js"></script>
-
 import style from './css/LoginPage.module.css';
 import { Link } from 'react-router-dom';
 import googleBtn from '../Image/GoogleBtn.png';

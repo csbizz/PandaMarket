@@ -1,5 +1,3 @@
-//     <link rel="stylesheet" href="../src/css/signpage.css" />
-//     <link rel="stylesheet" href="../src/css/signup.css" />
 // <script type="module" src="../src/js/signup.js"></script>
 import style from './css/SignupPage.module.css';
 import { Link } from 'react-router-dom';
