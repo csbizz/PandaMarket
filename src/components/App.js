@@ -7,6 +7,8 @@ import Pandamarket from '../layouts/Pandamarket.js';
 import SignLayout from '../layouts/SignLayout.js';
 import LoginPage from '../pages/LoginPage.js';
 import SignupPage from '../pages/SignupPage.js';
+import RegistrationPage from '../pages/RegistrationPage.js';
+import ItemsDetailPage from '../pages/ItemsDetailPage.js';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/" element={<Pandamarket />}>
             <Route index element={<LandingPage />} />
             <Route path="items" element={<ItemsPage />} />
+            <Route path="items/:id" element={<ItemsDetailPage />} />
+            <Route path="registration" element={<RegistrationPage />} />
             <Route path="sign" element={<SignLayout />}>
               <Route path="login" element={<LoginPage />} />
               <Route path="signup" element={<SignupPage />} />

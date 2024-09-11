@@ -5,13 +5,13 @@ import sortIcon from '../Image/ic_sort.svg';
 import arrowDown from '../Image/ic_arrow_down.svg';
 
 export const SORT_ORDER = Object.freeze({
-  RECENT: 'recent',
-  FAVORITE: 'favorite'
+  RECENT: 'recent'
+  // FAVORITE: 'favorite'
 });
 
 const SORT_ORDER_MSG = Object.freeze({
-  [SORT_ORDER.RECENT]: '최신순',
-  [SORT_ORDER.FAVORITE]: '좋아요순'
+  [SORT_ORDER.RECENT]: '최신순'
+  // [SORT_ORDER.FAVORITE]: '좋아요순'
 });
 
 function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {

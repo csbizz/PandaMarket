@@ -1,5 +1,6 @@
 import style from './css/ProductOnSaleTitle.module.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SortOrderSelect from './SortOrderSelect.js';
 import { useViewport, VIEWPORT } from '../contexts/ViewportContext.js';
 import searchIcon from '../Image/ic_search.svg';
@@ -16,7 +17,9 @@ function ProductOnSaleTitle({ onSearch, onSortOrderChange }) {
   };
 
   const registBtn = (
-    <button className={`${style['regist-button']}`}>상품 등록하기</button>
+    <Link to="/registration">
+      <button className={`${style['regist-button']}`}>상품 등록하기</button>
+    </Link>
   );
   const searchQry = (
     <div className={`${style['search-query']}`}>
