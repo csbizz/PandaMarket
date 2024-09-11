@@ -2,15 +2,16 @@ import style from './css/LandingPage.module.css';
 import hotItem from '../Image/Img_home_01.png';
 import search from '../Image/Img_home_02.png';
 import register from '../Image/Img_home_03.png';
+import { useViewport, VIEWPORT } from '../contexts/ViewportContext.js';
 
 function LandingPage() {
+  const viewport = useViewport();
   return (
     <main id={`${style['landingPage']}`}>
       <section id={`${style['topBanner']}`} className={`${style['banner']}`}>
         <div className={`${style['section-wrap']}`}>
           <h1 id={`${style['topBannerTitle']}`}>
-            일상의 모든 물건을
-            <br />
+            일상의 모든 물건을 {viewport !== VIEWPORT.TABLET && <br />}
             거래해 보세요
           </h1>
           <a href="../items/" className={`button ${style['long-button']}`}>

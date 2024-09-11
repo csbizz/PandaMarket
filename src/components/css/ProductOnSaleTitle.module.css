@@ -68,7 +68,8 @@
 /* Tablet */
 @media (max-width: 1199px) {
   #productOnSaleTitle {
-    width: 69.5rem;
+    min-width: 69.5rem;
+    max-width: calc(100vw - 4.8rem);
 
     grid-template-columns: 1fr 242px 133px 130px;
   }
