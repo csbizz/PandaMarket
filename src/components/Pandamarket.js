@@ -1,22 +1,22 @@
-import '../css/import.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import App from './App';
-import ItemsPage from '../pages/ItemsPage';
-import LandingPage from '../pages/LandingPage';
-import GlobalContextProvider from './GlobalContextProvider';
+import { Outlet } from 'react-router-dom';
+import Footer from './Footer.js';
+import Header from './Header.js';
+import { useError } from '../contexts/ErrorContext.js';
+import Modal from './Modal.js';
+import { useIsLoading } from '../contexts/PendingContext.js';
 
 function Pandamarket() {
+  const isLoading = useIsLoading();
+  const err = useError();
+
   return (
-    <GlobalContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<LandingPage />} />
-            <Route path="items" element={<ItemsPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </GlobalContextProvider>
+    <>
+      <Header />
+      <Outlet />
+      {isLoading && <Modal message="로딩 중입니다." noButton />}
+      {err && <Modal message={err.message} />}
+      <Footer />
+    </>
   );
 }
 

@@ -1,12 +1,12 @@
 import style from './css/ProductsOnSale.module.css';
-import ProductCard from './ProductCard';
-import Pagination from './Pagination';
-import ProductOnSaleTitle from './ProductOnSaleTitle';
 import { useCallback, useEffect, useState } from 'react';
-import useAsync from '../hooks/useAsync';
-import { getProducts } from '../api';
-import { useViewport } from '../contexts/ViewportContext';
-import { SORT_ORDER } from './SortOrderSelect';
+import ProductCard from './ProductCard.js';
+import Pagination from './Pagination.js';
+import ProductOnSaleTitle from './ProductOnSaleTitle.js';
+import useAsync from '../hooks/useAsync.js';
+import { getProducts } from '../api.js';
+import { useViewport } from '../contexts/ViewportContext.js';
+import { SORT_ORDER } from './SortOrderSelect.js';
 
 export const ITEM_PAGE_SIZE = Object.freeze({
   PC: 10,

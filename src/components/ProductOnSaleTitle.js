@@ -1,7 +1,7 @@
 import style from './css/ProductOnSaleTitle.module.css';
 import { useState } from 'react';
-import SortOrderSelect from './SortOrderSelect';
-import { useViewport, VIEWPORT } from '../contexts/ViewportContext';
+import SortOrderSelect from './SortOrderSelect.js';
+import { useViewport, VIEWPORT } from '../contexts/ViewportContext.js';
 import searchIcon from '../Image/ic_search.svg';
 
 function ProductOnSaleTitle({ onSearch, onSortOrderChange }) {

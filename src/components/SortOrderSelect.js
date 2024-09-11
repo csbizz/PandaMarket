@@ -1,6 +1,6 @@
 import style from './css/SortOrderSelect.module.css';
 import { useState } from 'react';
-import { useViewport, VIEWPORT } from '../contexts/ViewportContext';
+import { useViewport, VIEWPORT } from '../contexts/ViewportContext.js';
 import sortIcon from '../Image/ic_sort.svg';
 import arrowDown from '../Image/ic_arrow_down.svg';
 

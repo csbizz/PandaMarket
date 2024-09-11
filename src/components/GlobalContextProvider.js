@@ -1,6 +1,6 @@
-import { ErrorProvider } from '../contexts/ErrorContext';
-import { PendingProvider } from '../contexts/PendingContext';
-import { ViewportProvider } from '../contexts/ViewportContext';
+import { ErrorProvider } from '../contexts/ErrorContext.js';
+import { PendingProvider } from '../contexts/PendingContext.js';
+import { ViewportProvider } from '../contexts/ViewportContext.js';
 
 function GlobalContextProvider({ children }) {
   return (

@@ -1,7 +1,7 @@
 import style from './css/Pagination.module.css';
 import { useCallback, useEffect, useState } from 'react';
-import { useViewport } from '../contexts/ViewportContext';
-import { ITEM_PAGE_SIZE } from './ProductsOnSale';
+import { useViewport } from '../contexts/ViewportContext.js';
+import { ITEM_PAGE_SIZE } from './ProductsOnSale.js';
 
 const BUNDLE_SIZE = 5;
 

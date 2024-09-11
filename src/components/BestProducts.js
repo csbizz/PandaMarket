@@ -1,10 +1,10 @@
 import style from './css/BestProducts.module.css';
 import { useCallback, useEffect, useState } from 'react';
-import ProductCard from './ProductCard';
-import useAsync from '../hooks/useAsync';
-import { getProducts } from '../api';
-import { useViewport } from '../contexts/ViewportContext';
-import { SORT_ORDER } from './SortOrderSelect';
+import ProductCard from './ProductCard.js';
+import useAsync from '../hooks/useAsync.js';
+import { getProducts } from '../api.js';
+import { useViewport } from '../contexts/ViewportContext.js';
+import { SORT_ORDER } from './SortOrderSelect.js';
 
 const BEST_ITEM_PAGE_SIZE = Object.freeze({
   PC: 4,
