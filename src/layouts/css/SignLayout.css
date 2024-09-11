@@ -1,34 +1,32 @@
-@import "import.css";
-
-header {
-  justify-content: center;
-  margin: 6rem 0 4rem;
+#SignLayout {
+  margin-top: 4rem;
 }
 
-main {
+#SignLayout main {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   width: 64rem;
+  height: calc(100vh - 230px);
   margin: 0 auto;
 }
 
-#loginField {
+#SignLayout #loginField {
   width: 100%;
 }
 
-.label-wrap {
+#SignLayout .label-wrap {
   margin-bottom: 2.4rem;
 }
 
-.label-wrap label {
+#SignLayout .label-wrap label {
   font-size: 1.8rem;
   line-height: 2.148rem;
   font-weight: 700;
   color: var(--gray-800);
 }
 
-.label-wrap p.error-msg {
+#SignLayout .label-wrap p.error-msg {
   font-size: 1.5rem;
   line-height: 1.79rem;
   font-weight: 600;
@@ -37,7 +35,19 @@ main {
   margin-left: 1.6rem;
 }
 
-#loginField input {
+#SignLayout label.input__pw > div,
+#SignLayout label.input__checkpw > div {
+  position: relative;
+}
+
+#SignLayout label.input__pw img,
+#SignLayout label.input__checkpw img {
+  position: absolute;
+  right: 2.4rem;
+  bottom: 1.6rem;
+}
+
+#SignLayout #loginField input {
   width: 100%;
   border-radius: 1.2rem;
   height: 5.6rem;
@@ -47,15 +57,15 @@ main {
   border: 0;
 }
 
-#loginField input:focus {
+#SignLayout #loginField input:focus {
   outline: thin solid var(--Primary-100);
 }
 
-#loginField input.error {
+#SignLayout #loginField input.error {
   outline: thin solid var(--error-red);
 }
 
-#loginField button {
+#SignLayout #loginField button {
   width: 100%;
   height: 5.6rem;
   border: 0;
@@ -67,11 +77,11 @@ main {
   font-weight: 600;
 }
 
-#loginField button:disabled {
+#SignLayout #loginField button:disabled {
   background-color: var(--gray-400);
 }
 
-.sns-login {
+#SignLayout .sns-login {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,25 +93,25 @@ main {
   padding: 2.5rem 2.3rem;
 }
 
-.sns-login > div {
+#SignLayout .sns-login > div {
   display: flex;
   gap: 1.6rem;
 }
 
-footer {
-  justify-content: center;
+#SignLayout .footer-link {
+  text-align: center;
   width: 64rem;
   margin: 0 auto;
 }
 
-footer p {
+#SignLayout .footer-link p {
   font-size: 1.5rem;
   line-height: 1.78992rem;
   font-weight: 500;
   color: var(--gray-800);
 }
 
-footer a {
+#SignLayout .footer-link a {
   color: #3182f6;
 }
 
@@ -109,19 +119,13 @@ footer a {
 
 /* Mobile */
 @media (max-width: 743px) {
-  header,
-  main,
-  footer {
+  #SignLayout main {
     width: 100%;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }
 
-  header {
-    margin: 2.4rem auto;
-  }
-
-  body * {
+  #SignLayout body * {
     max-width: 432px;
   }
 }

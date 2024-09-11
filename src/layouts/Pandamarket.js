@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import Footer from './Footer.js';
-import Header from './Header.js';
+import Footer from '../components/Footer.js';
+import Header from '../components/Header.js';
 import { useError } from '../contexts/ErrorContext.js';
-import Modal from './Modal.js';
+import Modal from '../components/Modal.js';
 import { useIsLoading } from '../contexts/PendingContext.js';
 
 function Pandamarket() {
