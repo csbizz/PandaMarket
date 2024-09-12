@@ -1,4 +1,4 @@
-import style from "./css/Pagination.module.css";
+import style from "./css/PaginationBar.module.css";
 import { useViewport } from "../contexts/ViewportContext.jsx";
 import { ITEM_PAGE_SIZE } from "./ProductsOnSale.jsx";
 import usePagination from "../hooks/usePagination.js";
