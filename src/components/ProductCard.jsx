@@ -1,6 +1,6 @@
 import style from "./css/ProductCard.module.css";
 import defImg from "../Image/img_default.png";
-import { priceFunc } from "../utils.js";
+import { priceFunc } from "../utils/utils.js";
 
 function ProductCard({ item, classNames }) {
   const { favoriteCount, price, name, images } = item;

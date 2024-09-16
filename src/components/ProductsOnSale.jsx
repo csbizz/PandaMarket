@@ -1,6 +1,6 @@
 import style from "./css/ProductsOnSale.module.css";
 import { useCallback, useEffect, useState } from "react";
-import { getProducts } from "../api.js";
+import { getProducts } from "../utils/api.js";
 import useAsync from "../hooks/useAsync.js";
 import ProductCard from "./ProductCard.jsx";
 import PaginationBar from "./PaginationBar.jsx";

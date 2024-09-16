@@ -1,6 +1,6 @@
 import style from "./css/BestProducts.module.css";
 import { useCallback, useEffect, useState } from "react";
-import { getProducts } from "../api.js";
+import { getProducts } from "../utils/api.js";
 import useAsync from "../hooks/useAsync.js";
 import { useViewport } from "../contexts/ViewportContext.jsx";
 import ProductCard from "./ProductCard.jsx";
