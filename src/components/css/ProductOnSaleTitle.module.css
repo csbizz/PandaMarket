@@ -5,62 +5,62 @@
   display: grid;
   gap: 1.2rem;
   grid-template-columns: 1fr 325px 133px 130px;
-}
 
-#productOnSaleTitle h3 {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 3.2rem;
-  color: var(--gray-900);
-}
+  h3 {
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    color: var(--gray-900);
+  }
 
-.search-query {
-  height: 4.2rem;
-  width: 32.5rem;
-  border-radius: 12px;
-  background-color: var(--gray-100);
+  .search-query {
+    height: 4.2rem;
+    width: 32.5rem;
+    border-radius: 12px;
+    background-color: var(--gray-100);
 
-  padding: 0.9rem 1.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
+    padding: 0.9rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 
-.search-query .search-query-input {
-  border: none;
-  background-color: inherit;
-  width: 100%;
-  height: 100%;
+    .search-query-input {
+      border: none;
+      background-color: inherit;
+      width: 100%;
+      height: 100%;
 
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.6rem;
-}
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.6rem;
 
-.search-query-input::placeholder {
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.6rem;
-  color: var(--gray-400);
-}
+      &::placeholder {
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 2.6rem;
+        color: var(--gray-400);
+      }
 
-.search-query-input:focus {
-  outline: 0;
-  color: var(--gray-800);
-}
+      &:focus {
+        outline: 0;
+        color: var(--gray-800);
+      }
+    }
+  }
 
-.regist-button {
-  height: 4.2rem;
-  background-color: var(--Primary-100);
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.6rem;
-  color: var(--gray-100);
-  padding: 1.2rem 2.3rem;
+  .regist-button {
+    height: 4.2rem;
+    background-color: var(--Primary-100);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--gray-100);
+    padding: 1.2rem 2.3rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
@@ -72,10 +72,10 @@
     max-width: calc(100vw - 4.8rem);
 
     grid-template-columns: 1fr 242px 133px 130px;
-  }
 
-  .search-query {
-    width: 24.2rem;
+    .search-query {
+      width: 24.2rem;
+    }
   }
 }
 
@@ -91,13 +91,13 @@
     grid-template-rows: repeat(2, auto);
     column-gap: 1.4rem;
     row-gap: 0.8rem;
-  }
 
-  .regist-button {
-    transform: translateX(-6.8rem);
-  }
+    .regist-button {
+      transform: translateX(-6.8rem);
+    }
 
-  .search-query {
-    width: 28.8rem;
+    .search-query {
+      width: 28.8rem;
+    }
   }
 }

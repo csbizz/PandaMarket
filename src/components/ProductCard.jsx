@@ -6,10 +6,9 @@ function ProductCard({ item, classNames }) {
   const { favoriteCount, price, name, images } = item;
   const imgUrl = images?.length ? images[0] : defImg;
   const priceString = priceFunc(price);
-  const cn = `${style.card} ` + classNames;
 
   return (
-    <div className={cn}>
+    <div className={`${style.card} ${classNames}`}>
       <img src={imgUrl} alt={name} className={`${style["product-img"]}`} />
       <div className={`${style["product-info"]}`}>
         <h5 className={`${style.title}`}>{name}</h5>

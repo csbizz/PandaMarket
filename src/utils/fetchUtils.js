@@ -1,9 +1,11 @@
+import { isEmpty } from './utils.js';
+
 const HTTP_METHODS = Object.freeze({
   GET: 'GET',
   POST: 'POST',
   PATCH: 'PATCH',
   DELETE: 'DELETE',
-  PUT: 'PUT'
+  PUT: 'PUT',
 });
 
 async function fetchData({
@@ -11,7 +13,7 @@ async function fetchData({
   method,
   body = {},
   params = {},
-  options = {}
+  options = {},
 }) {
   if (!requestUrl || !method) throw new Error('URL and Method is required');
   if (!HTTP_METHODS[method]) throw new Error('Invalid HTTP method');
@@ -38,14 +40,14 @@ async function fetchData({
             : body;
         res = await fetch(url, {
           method,
-          body: reqBody
+          body: reqBody,
         });
         break;
     }
 
     if (!res.ok) throw new Error('Failed to fetch data');
-    // DELETE 작업시 리턴
-    if (res.status === 204) return res.status;
+    // DELETE 작업시 body가 비어있으면 리턴
+    if (res.status === 204 && isEmpty(res.body)) return res.status;
 
     return await res.json();
   } catch (err) {

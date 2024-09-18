@@ -23,7 +23,7 @@ function PaginationBar({ totalCount, onPageChange }) {
   );
 
   return (
-    <div id={`${style.productOnSalePagination}`}>
+    <div id={`${style.paginationBar}`}>
       <div className={`${style.pagination} ${style.productOnSale}`}>
         <button
           id={`${style.pageBefore}`}

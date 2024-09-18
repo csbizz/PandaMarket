@@ -8,8 +8,8 @@
   border-radius: 26px;
 
   height: 3.6rem;
-}
 
-.tag-button img {
-  margin-left: 0.8rem;
+  img {
+    margin-left: 0.8rem;
+  }
 }

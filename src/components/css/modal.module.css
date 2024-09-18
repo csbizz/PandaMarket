@@ -10,36 +10,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.modal.off {
-  display: none;
-}
+  &.off {
+    display: none;
+  }
 
-.modal-content {
-  width: 54rem;
-  height: 25rem;
-  border-radius: 8px;
-  background-color: white;
+  .modal-content {
+    width: 54rem;
+    height: 25rem;
+    border-radius: 8px;
+    background-color: white;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  position: relative;
-}
+    position: relative;
 
-.modal-content p {
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 500;
-}
+    p {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
 
-.modal-content .button {
-  position: absolute;
-  right: 2.8rem;
-  bottom: 2.8rem;
+    .button {
+      position: absolute;
+      right: 2.8rem;
+      bottom: 2.8rem;
 
-  padding: 1.2rem 2.3rem;
-  border-radius: 8px;
+      padding: 1.2rem 2.3rem;
+      border-radius: 8px;
+    }
+  }
 }
