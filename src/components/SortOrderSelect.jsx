@@ -1,13 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useState } from "react";
-import {
-  BREAKPOINTS,
-  useViewport,
-  VIEWPORT,
-} from "../contexts/ViewportContext.jsx";
+import { useViewport } from "../contexts/ViewportContext.jsx";
 import sortIcon from "../Image/ic_sort.svg";
 import arrowDown from "../Image/ic_arrow_down.svg";
+import CONSTANTS from "../constants.js";
 
 const style = {
   "sort-order": css`
@@ -28,7 +25,7 @@ const style = {
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       width: 4.2rem;
 
       justify-content: center;
@@ -69,23 +66,16 @@ const style = {
       }
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       transform: translateX(-8.8rem);
     }
   `,
 };
 
-export const SORT_ORDER = Object.freeze({
-  RECENT: "recent",
-  // FAVORITE: 'favorite'
-});
-
-const SORT_ORDER_MSG = Object.freeze({
-  [SORT_ORDER.RECENT]: "최신순",
-  // [SORT_ORDER.FAVORITE]: '좋아요순'
-});
-
-function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
+function SortOrderSelect({
+  initialSortOrder = CONSTANTS.SORT_ORDER.RECENT,
+  onChange,
+}) {
   const viewport = useViewport();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [sortOrder, setSortOrder] = useState(initialSortOrder);
@@ -100,18 +90,19 @@ function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
   return (
     <div>
       <div css={style["sort-order"]} onClick={toggleDropdown}>
-        {viewport !== VIEWPORT.MOBILE && SORT_ORDER_MSG[sortOrder]}
+        {viewport !== CONSTANTS.VIEWPORT.MOBILE &&
+          CONSTANTS.SORT_ORDER_MSG[sortOrder]}
         <img
-          src={viewport !== VIEWPORT.MOBILE ? arrowDown : sortIcon}
+          src={viewport !== CONSTANTS.VIEWPORT.MOBILE ? arrowDown : sortIcon}
           alt="sortOrderImg"
         />
       </div>
       {dropdownOpen && (
         <ul css={style["sort-order-list"]}>
-          {Object.values(SORT_ORDER).map((o) => {
+          {Object.values(CONSTANTS.SORT_ORDER).map((o) => {
             return (
               <li onClick={() => handleOrderChange(o)} key={o}>
-                {SORT_ORDER_MSG[o]}
+                {CONSTANTS.SORT_ORDER_MSG[o]}
               </li>
             );
           })}

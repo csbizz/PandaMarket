@@ -6,8 +6,8 @@ import useAsync from "../hooks/useAsync.js";
 import ProductCard from "./ProductCard.jsx";
 import PaginationBar from "./PaginationBar.jsx";
 import ProductOnSaleTitle from "./ProductOnSaleTitle.jsx";
-import { SORT_ORDER } from "./SortOrderSelect.jsx";
-import { BREAKPOINTS, useViewport } from "../contexts/ViewportContext.jsx";
+import { useViewport } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   productOnSaleItems: css`
@@ -23,14 +23,14 @@ const style = {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       height: 82rem;
 
       column-gap: 1.6rem;
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       height: 67.4rem;
 
       margin-top: 1.6rem;
@@ -42,28 +42,22 @@ const style = {
   paginationWrapper: css`
     margin: 4.3rem auto 14rem;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       margin-bottom: 16.5rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       margin-bottom: 13.5rem;
     }
   `,
 };
-
-export const ITEM_PAGE_SIZE = Object.freeze({
-  PC: 10,
-  TABLET: 6,
-  MOBILE: 4,
-});
 
 function ProductsOnSale() {
   const viewport = useViewport();
   const [items, setItems] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [now, setNow] = useState(1);
-  const [sortOrder, setSortOrder] = useState(SORT_ORDER.RECENT);
+  const [sortOrder, setSortOrder] = useState(CONSTANTS.SORT_ORDER.RECENT);
   const [searchQuery, setSearchQuery] = useState("");
   const getProductsAsync = useAsync(getProducts);
 
@@ -85,7 +79,7 @@ function ProductsOnSale() {
   useEffect(() => {
     handleLoadItem({
       page: now,
-      pageSize: ITEM_PAGE_SIZE[viewport],
+      pageSize: CONSTANTS.ITEM_PAGE_SIZE[viewport],
       orderBy: sortOrder,
       keyword: searchQuery,
     });
