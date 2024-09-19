@@ -1,8 +1,79 @@
-import style from "./css/SortOrderSelect.module.css";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useState } from "react";
-import { useViewport, VIEWPORT } from "../contexts/ViewportContext.jsx";
+import {
+  BREAKPOINTS,
+  useViewport,
+  VIEWPORT,
+} from "../contexts/ViewportContext.jsx";
 import sortIcon from "../Image/ic_sort.svg";
 import arrowDown from "../Image/ic_arrow_down.svg";
+
+const style = {
+  "sort-order": css`
+    height: 100%;
+    width: 13rem;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    padding: 1.2rem 2rem;
+    background-color: white;
+
+    color: var(--gray-800);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      width: 4.2rem;
+
+      justify-content: center;
+    }
+  `,
+
+  "sort-order-list": css`
+    position: absolute;
+    display: grid;
+    grid-template-rows: repeat(2, 4.2rem);
+    grid-gap: 0;
+    margin-top: 0.8rem;
+    width: 13rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid var(--gray-200);
+      border-bottom: 0;
+      border-radius: 1.2rem 1.2rem 0 0;
+      background-color: #ffffff;
+      color: var(--gray-800);
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.6rem;
+
+      &:last-child {
+        border-bottom: 1px solid var(--gray-200);
+        border-radius: 0 0 1.2rem 1.2rem;
+      }
+
+      &:hover {
+        background-color: var(--Primary-100);
+        color: var(--gray-50);
+        border: none;
+      }
+    }
+
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      transform: translateX(-8.8rem);
+    }
+  `,
+};
 
 export const SORT_ORDER = Object.freeze({
   RECENT: "recent",
@@ -27,8 +98,8 @@ function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   return (
-    <div className={`${style["sort-order-wrapper"]}`}>
-      <div className={`${style["sort-order"]}`} onClick={toggleDropdown}>
+    <div>
+      <div css={style["sort-order"]} onClick={toggleDropdown}>
         {viewport !== VIEWPORT.MOBILE && SORT_ORDER_MSG[sortOrder]}
         <img
           src={viewport !== VIEWPORT.MOBILE ? arrowDown : sortIcon}
@@ -36,7 +107,7 @@ function SortOrderSelect({ initialSortOrder = SORT_ORDER.RECENT, onChange }) {
         />
       </div>
       {dropdownOpen && (
-        <ul className={`${style["sort-order-list"]}`}>
+        <ul css={style["sort-order-list"]}>
           {Object.values(SORT_ORDER).map((o) => {
             return (
               <li onClick={() => handleOrderChange(o)} key={o}>

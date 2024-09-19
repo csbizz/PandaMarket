@@ -1,10 +1,44 @@
-import style from "./css/BestProducts.module.css";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useCallback, useEffect, useState } from "react";
 import { getProducts } from "../utils/api.js";
 import useAsync from "../hooks/useAsync.js";
-import { useViewport } from "../contexts/ViewportContext.jsx";
+import { BREAKPOINTS, useViewport } from "../contexts/ViewportContext.jsx";
 import ProductCard from "./ProductCard.jsx";
 import { SORT_ORDER } from "./SortOrderSelect.jsx";
+
+const style = {
+  bestProductsTitle: css`
+    margin-bottom: 1.6rem;
+
+    h3 {
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      color: var(--gray-900);
+    }
+
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      height: 43.4rem;
+
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  `,
+  bestProductsItems: css`
+    height: 37.8rem;
+
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      height: 48.2rem;
+
+      grid-template-columns: 1fr;
+    }
+  `,
+};
 
 const BEST_ITEM_PAGE_SIZE = Object.freeze({
   PC: 4,
@@ -36,19 +70,13 @@ function BestProducts() {
   }, [viewport, handleLoadItem]);
 
   return (
-    <section id={`${style.bestProducts}`}>
-      <div id={`${style.bestProductsTitle}`}>
+    <section>
+      <div css={style.bestProductsTitle}>
         <h3>베스트 상품</h3>
       </div>
-      <div id={`${style.bestProductsItems}`}>
+      <div css={style.bestProductsItems}>
         {items.map((item) => {
-          return (
-            <ProductCard
-              classNames={`${style.bestitem} ${style["bestitem-product-img"]}`}
-              item={item}
-              key={item.id}
-            />
-          );
+          return <ProductCard type="best" item={item} key={item.id} />;
         })}
       </div>
     </section>

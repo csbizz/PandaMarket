@@ -1,21 +1,56 @@
-import style from "./css/Footer.module.css";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import facebookIcon from "../Image/ic_facebook.png";
 import twitterIcon from "../Image/ic_twitter.png";
 import youtubeIcon from "../Image/ic_youtube.png";
 import instagramIcon from "../Image/ic_instagram.png";
 import { Link } from "react-router-dom";
+import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
+
+const style = {
+  footer: css`
+    height: 16rem;
+    background-color: var(--gray-900);
+    padding: 3.2rem 20rem 10.8rem 20rem;
+    color: var(--gray-400);
+
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      padding-left: 2.4rem;
+      padding-right: 2.4rem;
+    }
+
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+    }
+  `,
+  "footer-link": css`
+    display: flex;
+    gap: 3rem;
+    color: var(--gray-200);
+  `,
+  "sns-link": css`
+    display: flex;
+    gap: 1.2rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  `,
+};
 
 function Footer() {
   return (
-    <footer>
+    <footer css={style.footer}>
       <div>
         <p>©codeit - 2024</p>
       </div>
-      <div className={`${style["footer-link"]}`}>
+      <div css={style["footer-link"]}>
         <Link to="/privacy">Privacy Policy</Link>
         <Link to="/faq">FAQ</Link>
       </div>
-      <div className={`${style["sns-link"]}`}>
+      <div css={style["sns-link"]}>
         <Link to="https://www.facebook.com/">
           <img src={facebookIcon} alt="facebook" />
         </Link>

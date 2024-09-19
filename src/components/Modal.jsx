@@ -1,16 +1,64 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useState } from "react";
-import style from "./css/modal.module.css";
+
+const style = {
+  modal: css`
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.off {
+      display: none;
+    }
+  `,
+  "modal-content": css`
+    width: 54rem;
+    height: 25rem;
+    border-radius: 8px;
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    p {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    .button {
+      position: absolute;
+      right: 2.8rem;
+      bottom: 2.8rem;
+
+      padding: 1.2rem 2.3rem;
+      border-radius: 8px;
+    }
+  `,
+};
 
 function Modal({ message, noButton = false }) {
   const [modalOff, setModalOff] = useState("");
-  const handleClick = () => setModalOff(style.off);
+  const handleClick = () => setModalOff("off");
 
   return (
-    <div className={`${style.modal} ${modalOff}`}>
-      <div className={`${style["modal-content"]}`}>
+    <div css={style.modal} className={`${modalOff}`}>
+      <div css={style["modal-content"]}>
         <p>{message}</p>
         {!noButton && (
-          <div className={`${style.button} button`} onClick={handleClick}>
+          <div className="button" onClick={handleClick}>
             확인
           </div>
         )}

@@ -1,4 +1,5 @@
-import style from "./css/ProductsOnSale.module.css";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { useCallback, useEffect, useState } from "react";
 import { getProducts } from "../utils/api.js";
 import useAsync from "../hooks/useAsync.js";
@@ -6,7 +7,50 @@ import ProductCard from "./ProductCard.jsx";
 import PaginationBar from "./PaginationBar.jsx";
 import ProductOnSaleTitle from "./ProductOnSaleTitle.jsx";
 import { SORT_ORDER } from "./SortOrderSelect.jsx";
-import { useViewport } from "../contexts/ViewportContext.jsx";
+import { BREAKPOINTS, useViewport } from "../contexts/ViewportContext.jsx";
+
+const style = {
+  productOnSaleItems: css`
+    height: 67.4rem;
+
+    margin-top: 2.4rem;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    column-gap: 2.4rem;
+    row-gap: 4rem;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      height: 82rem;
+
+      column-gap: 1.6rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      height: 67.4rem;
+
+      margin-top: 1.6rem;
+
+      column-gap: 0.8rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  `,
+  paginationWrapper: css`
+    margin: 4.3rem auto 14rem;
+
+    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      margin-bottom: 16.5rem;
+    }
+
+    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      margin-bottom: 13.5rem;
+    }
+  `,
+};
 
 export const ITEM_PAGE_SIZE = Object.freeze({
   PC: 10,
@@ -48,23 +92,21 @@ function ProductsOnSale() {
   }, [viewport, now, sortOrder, searchQuery, handleLoadItem]);
 
   return (
-    <section id={`${style.productOnSale}`}>
+    <section
+      css={css`
+        margin: 0 auto;
+      `}
+    >
       <ProductOnSaleTitle
         onSearch={handleSearch}
         onSortOrderChange={handleSortOrderChange}
       />
-      <div id={`${style.productOnSaleItems}`}>
+      <div css={style.productOnSaleItems}>
         {items.map((item) => {
-          return (
-            <ProductCard
-              classNames={`${style.productOnSale}`}
-              item={item}
-              key={item.id}
-            />
-          );
+          return <ProductCard type="onSale" item={item} key={item.id} />;
         })}
       </div>
-      <div id={`${style.paginationWrapper}`}>
+      <div css={style.paginationWrapper}>
         <PaginationBar
           totalCount={totalCount}
           onPageChange={handlePageChange}
