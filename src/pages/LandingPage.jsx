@@ -10,6 +10,7 @@ import {
   useViewport,
   VIEWPORT,
 } from "../contexts/ViewportContext.jsx";
+import { Link } from "react-router-dom";
 
 const style = {
   h1: css`
@@ -150,9 +151,9 @@ function LandingPage() {
             일상의 모든 물건을 {viewport !== VIEWPORT.TABLET && <br />}
             거래해 보세요
           </h1>
-          <a href="../items/" css={style.longButton} className={"button"}>
+          <Link css={style.longButton} className={"button"} to="../items/">
             구경하러 가기
-          </a>
+          </Link>
         </div>
       </section>
       <section css={style.mBody}>

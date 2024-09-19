@@ -3,6 +3,9 @@ import { css } from "@emotion/react";
 import BestProducts from "../components/BestProducts.jsx";
 import ProductsOnSale from "../components/ProductsOnSale.jsx";
 import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
+import { useIsLoading } from "../contexts/PendingContext.jsx";
+import { useError } from "../contexts/ErrorContext.jsx";
+import Modal from "../components/Modal.jsx";
 
 const style = {
   itemsPage: css`
@@ -28,11 +31,18 @@ const style = {
 };
 
 function ItemsPage() {
+  const isLoading = useIsLoading();
+  const err = useError();
+
   return (
-    <main css={style.itemsPage}>
-      <div css={style.bestProductWrapper}>{/* <BestProducts /> */}</div>
-      <ProductsOnSale />
-    </main>
+    <>
+      <main css={style.itemsPage}>
+        <div css={style.bestProductWrapper}>{/* <BestProducts /> */}</div>
+        <ProductsOnSale />
+      </main>
+      {isLoading && <Modal message="로딩 중입니다." noButton />}
+      {err && <Modal message={err.message} />}
+    </>
   );
 }
 
