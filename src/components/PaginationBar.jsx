@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useViewport } from "../contexts/ViewportContext.jsx";
-import { ITEM_PAGE_SIZE } from "./ProductsOnSale.jsx";
 import usePagination from "../hooks/usePagination.js";
 import CONSTANTS from "../constants.js";
 
@@ -55,7 +54,7 @@ function PaginationBar({ totalCount, onPageChange }) {
     prevBundle,
   ] = usePagination(
     totalCount,
-    ITEM_PAGE_SIZE[viewport],
+    CONSTANTS.ITEM_PAGE_SIZE[viewport],
     CONSTANTS.BUNDLE_SIZE,
     onPageChange
   );

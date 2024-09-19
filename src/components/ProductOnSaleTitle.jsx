@@ -3,12 +3,9 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SortOrderSelect from "./SortOrderSelect.jsx";
-import {
-  BREAKPOINTS,
-  useViewport,
-  VIEWPORT,
-} from "../contexts/ViewportContext.jsx";
+import { useViewport } from "../contexts/ViewportContext.jsx";
 import searchIcon from "../Image/ic_search.svg";
+import CONSTANTS from "../constants.js";
 
 const style = {
   productOnSaleTitle: css`
@@ -26,14 +23,14 @@ const style = {
       color: var(--gray-900);
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       min-width: 69.5rem;
       max-width: calc(100vw - 4.8rem);
 
       grid-template-columns: 1fr 242px 133px 130px;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       width: 34.4rem;
       height: 9.2rem;
 
@@ -77,11 +74,11 @@ const style = {
       }
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       width: 24.2rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       width: 28.8rem;
     }
   `,
@@ -98,7 +95,7 @@ const style = {
     align-items: center;
     justify-content: center;
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       transform: translateX(-6.8rem);
     }
   `,
@@ -137,7 +134,7 @@ function ProductOnSaleTitle({ onSearch, onSortOrderChange }) {
   );
   const sortOrderSelect = <SortOrderSelect onChange={onSortOrderChange} />;
 
-  return viewport === VIEWPORT.MOBILE ? (
+  return viewport === CONSTANTS.VIEWPORT.MOBILE ? (
     <div css={style.productOnSaleTitle}>
       <h3>판매 중인 상품</h3>
       {registBtn}

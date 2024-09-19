@@ -61,29 +61,27 @@ function ProductsOnSale() {
   const [searchQuery, setSearchQuery] = useState("");
   const getProductsAsync = useAsync(getProducts);
 
-  const handleLoadItem = useCallback(
-    async (params) => {
-      const data = await getProductsAsync(params);
-      if (!data) return;
-
-      setItems(data.list);
-      setTotalCount(data.totalCount);
-      setNow(params.page);
-    },
-    [getProductsAsync]
-  );
   const handleSearch = (query) => setSearchQuery(query);
   const handleSortOrderChange = (order) => setSortOrder(order);
   const handlePageChange = useCallback((p) => setNow(p), []);
 
   useEffect(() => {
-    handleLoadItem({
-      page: now,
-      pageSize: CONSTANTS.ITEM_PAGE_SIZE[viewport],
-      orderBy: sortOrder,
-      keyword: searchQuery,
-    });
-  }, [viewport, now, sortOrder, searchQuery, handleLoadItem]);
+    async function handleLoadItem() {
+      const data = await getProductsAsync({
+        page: now,
+        pageSize: CONSTANTS.ITEM_PAGE_SIZE[viewport],
+        orderBy: sortOrder,
+        keyword: searchQuery,
+      });
+      if (!data) return;
+
+      setItems(data.list);
+      setTotalCount(data.totalCount);
+      setNow(now);
+    }
+
+    handleLoadItem();
+  }, [viewport, now, sortOrder, searchQuery, getProductsAsync]);
 
   return (
     <section

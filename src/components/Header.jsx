@@ -3,11 +3,8 @@ import { css } from "@emotion/react";
 import { Link, NavLink } from "react-router-dom";
 import logoImg from "../Image/logo.png";
 import smallLogoImg from "../Image/small_logo.png";
-import {
-  BREAKPOINTS,
-  useViewport,
-  VIEWPORT,
-} from "../contexts/ViewportContext.jsx";
+import { useViewport } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   header: css`
@@ -15,12 +12,12 @@ const style = {
     height: 7rem;
     border-bottom: 1px solid #dfdfdf;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       padding-left: 2.4rem;
       padding-right: 2.4rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       padding-left: 1.6rem;
       padding-right: 1.6rem;
     }
@@ -36,7 +33,7 @@ const style = {
     line-height: 2.148rem;
     text-align: center;
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       margin-left: 1.6rem;
       gap: 0.8rem;
       font-size: 1.6rem;
@@ -59,6 +56,7 @@ function getLinkStyle({ isActive }) {
 
 function Header() {
   const viewport = useViewport();
+
   return (
     <header css={style.header}>
       <Link to="/">
@@ -66,7 +64,7 @@ function Header() {
           css={css`
             width: 153px;
           `}
-          src={viewport === VIEWPORT.MOBILE ? smallLogoImg : logoImg}
+          src={viewport === CONSTANTS.VIEWPORT.MOBILE ? smallLogoImg : logoImg}
           alt="판다마켓 로고"
         />
       </Link>

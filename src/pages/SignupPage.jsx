@@ -1,10 +1,10 @@
 // <script type="module" src="../src/js/signup.js"></script>
 /** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 import googleBtn from "../Image/GoogleBtn.png";
 import kakaoTalkBtn from "../Image/KakaoTalkBtn.png";
 import SignInput from "../components/SignInput.jsx";
-import { css } from "@emotion/react";
 
 function SignupPage() {
   return (

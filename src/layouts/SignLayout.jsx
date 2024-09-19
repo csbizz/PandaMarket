@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Outlet } from "react-router-dom";
-import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   signLayout: css`
@@ -71,7 +71,7 @@ const style = {
         color: #3182f6;
       }
 
-      @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
         main {
           width: 100%;
           padding-left: 1.6rem;

@@ -2,10 +2,10 @@
 import { css } from "@emotion/react";
 import BestProducts from "../components/BestProducts.jsx";
 import ProductsOnSale from "../components/ProductsOnSale.jsx";
-import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
 import { useIsLoading } from "../contexts/PendingContext.jsx";
 import { useError } from "../contexts/ErrorContext.jsx";
 import Modal from "../components/Modal.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   itemsPage: css`
@@ -13,18 +13,18 @@ const style = {
     max-width: 120rem;
     margin: 0 auto;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       padding: 0 2.4rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       padding: 0 1.6rem;
     }
   `,
   bestProductWrapper: css`
     margin: 2.4rem auto 4rem auto;
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       max-width: 36rem;
     }
   `,

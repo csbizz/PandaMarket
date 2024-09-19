@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProducts } from "../utils/api.js";
 import useAsync from "../hooks/useAsync.js";
 import { useViewport } from "../contexts/ViewportContext.jsx";
@@ -45,23 +45,20 @@ function BestProducts() {
   const [items, setItems] = useState([]);
   const getProductsAsync = useAsync(getProducts);
 
-  const handleLoadItem = useCallback(
-    async (params) => {
-      const data = await getProductsAsync(params);
+  useEffect(() => {
+    async function handleLoadItem() {
+      const data = await getProductsAsync({
+        page: 1,
+        pageSize: CONSTANTS.BEST_ITEM_PAGE_SIZE[viewport],
+        orderBy: CONSTANTS.SORT_ORDER.FAVORITE,
+      });
       if (!data) return;
 
       setItems(data.list);
-    },
-    [getProductsAsync]
-  );
+    }
 
-  useEffect(() => {
-    handleLoadItem({
-      page: 1,
-      pageSize: CONSTANTS.BEST_ITEM_PAGE_SIZE[viewport],
-      orderBy: CONSTANTS.SORT_ORDER.FAVORITE,
-    });
-  }, [viewport, handleLoadItem]);
+    handleLoadItem();
+  }, [viewport, getProductsAsync]);
 
   return (
     <section>

@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
 import TagButton from "../components/TagButton.jsx";
 import useValidation from "../hooks/useValidation.js";
-import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   registrationPage: css`
@@ -12,13 +12,13 @@ const style = {
     width: 100%;
     height: 83rem;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       margin: 1.8rem auto 19.4rem auto;
       height: 80.6rem;
       padding: 0 2.4rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       margin: 2.4rem auto 18.6rem auto;
       padding: 0 1.6rem;
     }
@@ -51,7 +51,7 @@ const style = {
     flex-direction: column;
     gap: 3.2rem;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       gap: 2.4rem;
     }
   `,

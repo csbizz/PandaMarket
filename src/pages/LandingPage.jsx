@@ -1,16 +1,13 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { Link } from "react-router-dom";
 import topImage from "../Image/Img_home_top.png";
 import hotItem from "../Image/Img_home_01.png";
 import search from "../Image/Img_home_02.png";
 import register from "../Image/Img_home_03.png";
 import bottomImage from "../Image/Img_home_bottom.png";
-import {
-  BREAKPOINTS,
-  useViewport,
-  VIEWPORT,
-} from "../contexts/ViewportContext.jsx";
-import { Link } from "react-router-dom";
+import { useViewport } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   h1: css`
@@ -35,7 +32,7 @@ const style = {
       background-image: url(${bottomImage});
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       height: 77.1rem;
       background-position: bottom;
       background-size: 120%;
@@ -43,7 +40,7 @@ const style = {
       align-items: baseline;
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       height: 54rem;
     }
   `,
@@ -52,7 +49,7 @@ const style = {
     margin: 0 auto;
     width: 100%;
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       &.banner {
         text-align: center;
         position: relative;
@@ -60,7 +57,7 @@ const style = {
       }
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       &.banner {
         top: 8%;
       }
@@ -84,7 +81,7 @@ const style = {
       text-align: right;
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       padding: 4rem 2.4rem;
       flex-direction: column;
 
@@ -97,7 +94,7 @@ const style = {
       }
     }
 
-    @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
       padding: 3.2rem 1.6rem;
 
       img {
@@ -123,7 +120,7 @@ const style = {
       margin-top: 2.4rem;
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       text-align: left;
       width: 696px;
       margin-top: 1.6rem;
@@ -133,7 +130,7 @@ const style = {
       }
     }
 
-    @media (max-width: ${BREAKPOINTS.TABLET}px) {
+    @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
       width: 100%;
       margin-top: 0.8rem;
     }
@@ -148,7 +145,8 @@ function LandingPage() {
       <section css={style.banner} id={"topBanner"}>
         <div css={style.mBody} className={"banner"}>
           <h1 css={style.h1}>
-            일상의 모든 물건을 {viewport !== VIEWPORT.TABLET && <br />}
+            일상의 모든 물건을{" "}
+            {viewport !== CONSTANTS.VIEWPORT.TABLET && <br />}
             거래해 보세요
           </h1>
           <Link css={style.longButton} className={"button"} to="../items/">

@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import defImg from "../Image/img_default.png";
 import { priceFunc } from "../utils/utils.js";
-import { BREAKPOINTS } from "../contexts/ViewportContext.jsx";
+import CONSTANTS from "../constants.js";
 
 const style = {
   card: css`
@@ -16,14 +16,14 @@ const style = {
 
       border-radius: 16px;
 
-      @media (max-width: ${BREAKPOINTS.TABLET}px) {
+      @media (max-width: ${CONSTANTS.BREAKPOINTS.TABLET}px) {
         &.best {
           width: 343px;
           border-radius: 19.46px;
         }
       }
 
-      @media (max-width: ${BREAKPOINTS.MOBILE}px) {
+      @media (max-width: ${CONSTANTS.BREAKPOINTS.MOBILE}px) {
         width: 16.8rem;
         border-radius: 12px;
       }
