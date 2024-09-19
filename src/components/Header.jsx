@@ -29,7 +29,7 @@ function Header() {
           중고마켓
         </NavLink>
       </nav>
-      <Link to="/login/" id={`${style.loginButton}`} className="button">
+      <Link to="/sign/login/" id={`${style.loginButton}`} className="button">
         로그인
       </Link>
     </header>

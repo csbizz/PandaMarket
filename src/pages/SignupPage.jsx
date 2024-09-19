@@ -1,13 +1,18 @@
 // <script type="module" src="../src/js/signup.js"></script>
-import style from "./css/SignupPage.module.css";
+/** @jsxImportSource @emotion/react */
 import { Link } from "react-router-dom";
 import googleBtn from "../Image/GoogleBtn.png";
 import kakaoTalkBtn from "../Image/KakaoTalkBtn.png";
 import SignInput from "../components/SignInput.jsx";
+import { css } from "@emotion/react";
 
 function SignupPage() {
   return (
-    <main id={`${style.signup}`}>
+    <main
+      css={css`
+        height: calc(110vh - 230px);
+      `}
+    >
       <form id="loginField">
         <SignInput
           label="이메일"
