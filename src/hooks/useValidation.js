@@ -2,23 +2,20 @@ function useValidation() {
   const validationFunc = (name, value, setObj) => {
     switch (name) {
       case 'name':
-        nameValidation(value, setObj);
-        break;
+        return nameValidation(value, setObj);
       case 'description':
-        descriptionValidation(value, setObj);
-        break;
+        return descriptionValidation(value, setObj);
       case 'price':
-        priceValidation(value, setObj);
-        break;
+        return priceValidation(value, setObj);
       case 'tag':
-        tagValidation(value, setObj);
-        break;
+        return tagValidation(value, setObj);
       default:
         const isOK = false;
         const errMsg = 'Invalid input name';
         setObj((prev) => {
           return { ...prev, isOK, errMsg };
         });
+        return isOK;
     }
   };
 
@@ -31,18 +28,21 @@ function useValidation() {
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else if (value?.length > 10) {
       const isOK = false;
       const errMsg = '10자 이내로 입력해주세요';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else {
       const isOK = true;
       const errMsg = '';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     }
   }
 
@@ -53,18 +53,21 @@ function useValidation() {
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else if (value?.length > 100) {
       const isOK = false;
       const errMsg = '100자 이내로 입력해주세요';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else {
       const isOK = true;
       const errMsg = '';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     }
   }
 
@@ -76,18 +79,21 @@ function useValidation() {
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else if (p < 0) {
       const isOK = false;
       const errMsg = '양수로 입력해주세요';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else {
       const isOK = true;
       const errMsg = '';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     }
   }
 
@@ -98,12 +104,14 @@ function useValidation() {
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     } else {
       const isOK = true;
       const errMsg = '';
       setObj((prev) => {
         return { ...prev, isOK, errMsg };
       });
+      return isOK;
     }
   }
 }

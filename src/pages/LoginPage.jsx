@@ -1,5 +1,6 @@
 //     <script type="module" src="../src/js/login.js"></script>
-import style from "./css/LoginPage.module.css";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 import googleBtn from "../Image/GoogleBtn.png";
 import kakaoTalkBtn from "../Image/KakaoTalkBtn.png";
@@ -7,7 +8,11 @@ import SignInput from "../components/SignInput.jsx";
 
 function LoginPage() {
   return (
-    <main id={`${style.login}`}>
+    <main
+      css={css`
+        height: 65rem;
+      `}
+    >
       <form id="loginField">
         <SignInput
           label="이메일"
