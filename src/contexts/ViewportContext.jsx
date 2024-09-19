@@ -48,4 +48,4 @@ function useViewport() {
   return context.viewport;
 }
 
-export { VIEWPORT, ViewportProvider, useViewport };
+export { VIEWPORT, BREAKPOINTS, ViewportProvider, useViewport };
