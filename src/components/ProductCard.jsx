@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import defImg from "../Image/img_default.png";
+import heart from "../Image/ic_heart.svg";
 import { priceFunc } from "../utils/utils.js";
 import CONSTANTS from "../constants.js";
 
@@ -53,6 +54,11 @@ const style = {
     font-size: 1.2rem;
     line-height: 1.8rem;
     color: var(--gray-600);
+
+    img {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   `,
 };
 
@@ -67,7 +73,9 @@ function ProductCard({ item, type }) {
       <div css={style.info}>
         <h5 css={style.title}>{name}</h5>
         <p css={style.price}>{priceString}원</p>
-        <p css={style.favorite}>❤️ {favoriteCount}</p>
+        <p css={style.favorite}>
+          <img src={heart} alt="favorite heart" /> {favoriteCount}
+        </p>
       </div>
     </div>
   );
